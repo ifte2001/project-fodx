@@ -595,7 +595,7 @@ h_address[66].lon1 = 91.81313111111525;
 
 ///opening fodx
 ///time stop
-Sleep(2500);
+Sleep(4);
 int x_axix=42;
         int y_axix=12;
 	char ch_box1=220;
@@ -2193,14 +2193,14 @@ int x_axix=42;
 
 
         horizontal(48,7, 13, 26);
-        
+
         vertical_left(48, 8, 14, 15);
         vertical_right(73, 8, 14, 15);
         horizontal(48, 22, 14, 26);
 
 
         gotostring(50, 8, 11);
-        printf("         Menu\n");
+        printf("         MENU\n");
 
         horizontal(48, 9, 13, 26);
 
@@ -2254,7 +2254,7 @@ int x_axix=42;
 
         gotostring(50, 21, 11);
         printf("Enter the key: ");
-        
+
 
 
         if(clog==1)
@@ -2265,10 +2265,11 @@ int x_axix=42;
             gotostring(50,3,11);
             printf("As-salamu alaykum %s\n",cus[id1].name);
             horizontal(43,4,6,36);
+            successsound();
 
 
             Sleep(2000);
-            
+
             goto part9;
         }
 
@@ -3249,32 +3250,96 @@ int x_axix=42;
             {
             ///clear screen
             system("cls");;
-            printf("Contact us: \n===============\n");
-            printf("Owner of fodx\n");
-            printf("Name          : Md. Iftekhar Alam\n");
-            printf("Mobile number : 01818477521\n");
-            printf("Email address : iftekharalam5623@gmail.com\n\n");
 
-            printf("Name          : Arapat Mahmood Maruf\n");
-            printf("Mobile number : 01690011616\n");
-            printf("Email address : maruf117155@gmail.com\n\n");
 
-            printf("Name          : Farhadul Islam Rakib\n");
-            printf("Mobile number : 01322258065\n");
-            printf("Email address : farhadulislam84054@gmail.com\n\n");
 
-            printf("ONLINE SHOP OWNER CONTACT : \n");
-            printf("============================\n");
 
+            vertical_left(0,0,14,16);
+            vertical_right(47,0,14,16);
+
+            horizontal(0,0,6,48);
+            horizontal(0,2,6,48);
+            horizontal(0,4,13,48);
+            horizontal(0,8,13,48);
+            horizontal(0,12,13,48);
+            horizontal(0,16,13,48);
+
+            gotostring(18,1,11);
+            printf(" CONTRACT US:");
+
+            gotostring(1,3,11);
+            printf("                 OWNER OF FODX\n");
+
+            gotostring(1,5,7);
+            printf("  Name          : ");setcolor(7);
+            printf("Md. Iftekhar Alam");
+
+            gotostring(1,6,11);
+            printf("  Mobile number : ");setcolor(10);
+            printf("01818477521");
+
+            gotostring(1,7,11);
+            printf("  Email address : ");setcolor(10);
+            printf("iftekharalam5623@gmail.com");
+
+            gotostring(1,9,7);
+            printf("  Name          : ");setcolor(7);
+            printf("Arapat Mahmood Maruf");
+
+            gotostring(1,10,11);
+            printf("  Mobile number : ");setcolor(10);
+            printf("01690011616");
+
+            gotostring(1,11,11);
+            printf("  Email address : ");setcolor(10);
+            printf("maruf117155@gmail.com\n");
+
+            gotostring(1,13,7);
+            printf("  Name          : ");setcolor(7);
+            printf("Farhadul Islam Rakib");
+
+            gotostring(1,14,11);
+            printf("  Mobile number : ");setcolor(10);
+            printf("01322258065");
+
+            gotostring(1,15,11);
+            printf("  Email address : ");setcolor(10);
+            printf("farhadulislam84054@gmail.com\n\n\n");
+
+            setcolor(6);
+            printf("\n================================================\n");
+            setcolor(11);
+            printf("           ONLINE SHOP OWNER CONTACT\n");
+            setcolor(6);
+            printf("================================================\n\n");
+
+            if(ouser == 0)
+            {
+            setcolor(12);
+            printf("           (There is no online shop)\n");
+            }
             for(int i=1;i<=ouser;i++)
             {
+                setcolor(14);
+                character(48,254);
+                printf("\n");
+                setcolor(10);
                 printf("(%d)\n",i);
+                setcolor(7);
                 printf("online-shop Name : %s\n",own[i].shop_name);
-                printf("contract number  : %s\n\n",own[i].phone);
+                setcolor(11);
+                printf("contract number  : ");setcolor(10);
+                printf("%s\n\n",own[i].phone);
             }
 
+            setcolor(14);
+            character(48,254);
+
+            printf("\n\n");
+
+            setcolor(11);
             printf("1. Back\n");
-            printf("Enter the key : ");
+            printf("Enter the key : ");setcolor(10);
             scanf("%d",&key20);keysound();
 
             if(key20==1)
@@ -3791,7 +3856,7 @@ part_thanks:
                 fclose(p);
 
 
-//COPY KORTASI...
+
             while(1)
             {
                 system("cls");
@@ -3839,26 +3904,26 @@ part_thanks:
 
                     p = fopen(phone10,"a");
                     fprintf(p,"\n");
-                    for(int i=1;i<=24;i++)
+                    for(int i=1;i<=12;i++)
                     {
-                        fprintf(p,"%c%c%c%c%c",254,254,254,254,254);
+                        fprintf(p,"%c%c%c%c%c%c%c%c%c%c",254,254,254,254,254,254,254,254,254,254);
                     }
                     fprintf(p, "                                          Time : %s",ctime(&t));
                     fprintf(p, "                                          Message sended by : %s\n",cus[id1].name);
-                    for(int i=1;i<=24;i++)
+                    for(int i=1;i<=12;i++)
                     {
-                        fprintf(p,"%c%c%c%c%c",254,254,254,254,254);
+                        fprintf(p,"%c%c%c%c%c%c%c%c%c%c",254,254,254,254,254,254,254,254,254,254);
                     }
                     fprintf(p,"\n");
                     fprintf(p,"|=>  ");setcolor(10);
                     fputs(mess,p);
                     keysound();
                     fprintf(p,"\n");
-                    for(int i=1;i<=24;i++)
+                    for(int i=1;i<=12;i++)
                     {
-                        fprintf(p,"%c%c%c%c%c",254,254,254,254,254);
+                        fprintf(p,"%c%c%c%c%c%c%c%c%c%c",254,254,254,254,254,254,254,254,254,254);
                     }
-                    fprintf(p,"\n");
+                    fprintf(p,"\n\n");
                     fclose(p);
 
                     omessage[id1].point = 1;
@@ -3938,17 +4003,17 @@ part12a1:
     {
         system("cls");
 
-        
+
 
         vertical_left(48, 6, 14, 16);
         vertical_right(72, 6, 14, 16);
 
-        horizontal(48, 6, 13, 25); 
+        horizontal(48, 6, 13, 25);
 
         gotostring(50, 7, 11);
-        printf("        Menu\n");
+        printf("        MENU\n");
 
-        horizontal(48, 8,13,25); 
+        horizontal(48, 8,13,25);
 
         gotostring(50, 9, 7);
         printf("1. My profile\n");
@@ -3998,9 +4063,9 @@ part12a1:
         horizontal(48, 20, 14, 25);
         gotostring(50, 21, 11);
         printf("Enter the key : ");
-        
-        
-        
+
+
+
 
         if(olog==1)
         {
@@ -4008,8 +4073,8 @@ part12a1:
             gotostring(50, 3, 11);
             printf("As-salamu alaykum %s\n\n", own[oid].nickname);
 
-            horizontal(41, 2, 6, 40);   
-            horizontal(43, 4, 6, 36);   
+            horizontal(41, 2, 6, 40);
+            horizontal(43, 4, 6, 36);
 
             successsound();
             Sleep(2000);
@@ -4211,7 +4276,7 @@ part12a1:
             character(38,254);
             setcolor(11);
             printf("\nEnter the key : ");setcolor(10);
-            
+
             scanf("%d",&n3);
             keysound();
 
@@ -4552,10 +4617,13 @@ part12a1:
 
                 gotostring(54,5,11);
                 printf("  Change password");
+
                 gotostring(48,7,10);
                 printf("previous password : %s",own[oid].password);
+
                 gotostring(48,8,7);
-                printf("New password : ");setcolor(10);
+                printf("New password : ");
+                setcolor(10);
                 scanf("%s",own[oid].password);keysound();
             }
             if(key28==2)
@@ -4563,16 +4631,21 @@ part12a1:
                 system("cls");
                 vertical_left(46,4,14,6);
                 vertical_right(79,4,14,6);
+
                 horizontal(46,4,13,34);
                 horizontal(46,6,13,34);
                 horizontal(46,9,14,34);
 
                 gotostring(54,5,11);
                 printf("  Change nickname");
+
                 gotostring(48,7,10);
                 printf("previous nickname : %s",own[oid].nickname);
+
                 gotostring(48,8,7);
-                printf("New nickname : ");setcolor(10);
+                printf("New nickname : ");
+
+                setcolor(10);
                 scanf("%s",own[oid].nickname);keysound();
             }
             if(key28 == 3)
@@ -4589,6 +4662,7 @@ part12a1:
         {
 ///=====================================================================================
 ///owner account status
+
             while(1)
             {
             system("cls");
@@ -4608,6 +4682,7 @@ part12a1:
                     printf("   Account status");
 
             double per = (own[oid].gorder * 100.0)/(own[oid].gorder + own[oid].border);
+
 
             if(per>=50){
                 gotostring(50,7,10);
@@ -4715,12 +4790,15 @@ part12a1:
 
 ///=====================================================================================
 ///owner message:
+
             system("cls");
             setcolor(13);
             character(38,254);
+
             printf("\n");
             setcolor(10);
             printf("               Message : \n");
+
             setcolor(13);
             character(38,254);
             printf("\n");
@@ -4783,6 +4861,7 @@ part12a1:
                     }
                 }
                 fclose(p);
+
 ///PASTE KORTASI
             remove_string(phone20);
              strcpy(phone20,own[oid].phone);
@@ -4815,6 +4894,7 @@ part12a1:
                 fclose(p);
                 setcolor(2);
                 printf("(*) Back\n");setcolor(11);
+
                 printf("Enter the message : \n");
                 printf(">>> ");
                 setcolor(7);
@@ -4832,26 +4912,31 @@ part12a1:
 
                     p = fopen(phone20,"a");
                     fprintf(p,"\n");
-                    for(int i=1;i<=24;i++)
+                    for(int i=1;i<=12;i++)
                     {
-                        fprintf(p,"%c%c%c%c%c",254,254,254,254,254);
+                        fprintf(p,"%c%c%c%c%c%c%c%c%c%c",254,254,254,254,254,254,254,254,254,254);
                     }
+
                     fprintf(p, "                                          Time : %s",ctime(&t));
                     fprintf(p, "                                          Message sended by : %s\n",own[oid].shop_name);
-                    for(int i=1;i<=24;i++)
+
+                    for(int i=1;i<=12;i++)
                     {
-                        fprintf(p,"%c%c%c%c%c",254,254,254,254,254);
+                        fprintf(p,"%c%c%c%c%c%c%c%c%c%c",254,254,254,254,254,254,254,254,254,254);
                     }
                     fprintf(p,"\n");
+
                     fprintf(p,"|=>  ");setcolor(10);
                     fputs(mess,p);
                     keysound();
+
                     fprintf(p,"\n");
-                    for(int i=1;i<=24;i++)
+
+                    for(int i=1;i<=12;i++)
                     {
-                        fprintf(p,"%c%c%c%c%c",254,254,254,254,254);
+                        fprintf(p,"%c%c%c%c%c%c%c%c%c%c",254,254,254,254,254,254,254,254,254,254);
                     }
-                    fprintf(p,"\n");
+                    fprintf(p,"\n\n");
                     fclose(p);
 
                     cmessage[oid].point = 1;
