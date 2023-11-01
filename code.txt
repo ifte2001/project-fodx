@@ -2196,7 +2196,7 @@ int x_axix=42;
 
         vertical_left(48, 8, 14, 15);
         vertical_right(73, 8, 14, 15);
-        horizontal(48, 22, 14, 26);
+        horizontal(48, 23, 14, 26);
 
 
         gotostring(50, 8, 11);
@@ -2247,12 +2247,13 @@ int x_axix=42;
         if(message_number>0)
         {
             setcolor(10);
-            printf(" (%d new message)",message_number);
+            gotostring(50,20,12);
+            printf("    (%d new message)",message_number);
         }
 
-        horizontal(48, 20, 14, 26);
+        horizontal(48, 21, 14, 26);
 
-        gotostring(50, 21, 11);
+        gotostring(50, 22, 11);
         printf("Enter the key: ");
 
 
@@ -4053,7 +4054,8 @@ part12a1:
 
         if (message_number > 0)
         {
-            printf(" (%d new message)", message_number);
+            gotostring(50,18,12);
+            printf("   (%d new message)", message_number);
         }
 
         gotostring(50, 19, 10);
