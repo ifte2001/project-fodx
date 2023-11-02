@@ -595,7 +595,7 @@ h_address[66].lon1 = 91.81313111111525;
 
 ///opening fodx
 ///time stop
-Sleep(4);
+Sleep(4200);
 int x_axix=42;
         int y_axix=12;
 	char ch_box1=220;
@@ -4960,7 +4960,9 @@ part12a1:
           }
           if(key33==-1)
           {
+            ///clean
             system("cls");
+
             goto part12a;
           }
         }
