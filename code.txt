@@ -74,6 +74,28 @@
         }
     }
 
+    // Define the maximum length for the password
+    #define MAX_PASSWORD_LENGTH 20
+    void hidePasswordInput(char *password)
+    {
+    int i = 0;
+    while (i < MAX_PASSWORD_LENGTH - 1) {
+        char ch = getch(); // Read a single character without echoing it to the console
+        if (ch == '\r') { // If Enter is pressed
+            password[i] = '\0'; // Null-terminate the password string
+            break;
+        } else if (ch == '\b' && i > 0) { // If Backspace is pressed
+            printf("\b \b"); // Erase the last character from the console
+            i--;
+        } else if (ch != '\b') { // For other characters except Backspace
+            password[i] = ch; // Add the character to the password
+            printf("*"); // Print a '*' to indicate input without showing the actual character
+            i++;
+        }
+    }
+    printf("\n");
+    password[i] = '\0'; // Null-terminate the password string
+    }
 
     void setcolor(int ForgC)      ///for COLOR
     {
@@ -1123,7 +1145,7 @@ int x_axix=42;
                 part6b:
                 gotostring(40,8,15);
                 printf("   Enter password     : ");setcolor(10);
-                scanf("%s",&password1);
+                hidePasswordInput(password1);
                 keysound();
                 horizontal(39,9,14,40);
                 horizontal(39,12,14,40);
@@ -1320,7 +1342,7 @@ int x_axix=42;
                     printf("Previous password : %s",cus[id1].password);
                     gotostring(41,8,15);
                     printf("New password : ");setcolor(10);
-                    scanf("%s",cus[id1].password);keysound();
+                    hidePasswordInput(cus[id1].password);
                     part=7;
                     wrong4=0;
                     system("cls");
@@ -1528,7 +1550,7 @@ int x_axix=42;
 
                 gotostring(38,10,15);
                 printf("Enter password : ");setcolor(10);
-                scanf("%s",&cus[user].password);keysound();
+                hidePasswordInput(cus[user].password);
 
                 gotostring(38,11,15);
                 printf("Enter your best friend name : ");setcolor(10);
@@ -1877,7 +1899,7 @@ int x_axix=42;
 
             gotostring(38,12,15);
             printf("Enter password : ");setcolor(10);
-            scanf("%s",own[ouser].password);keysound();
+            hidePasswordInput(own[ouser].password);
 
             own[ouser].gorder = 1;
             own[ouser].border = 1;
@@ -1933,7 +1955,7 @@ int x_axix=42;
         scanf("%s",&phone5);keysound();
         gotostring(40,8,15);
         printf("   Enter password     : ");setcolor(10);
-        scanf("%s",&password5);keysound();
+        hidePasswordInput(password5);keysound();
         srand(time(0));
 
         n1 = rand()%5;
@@ -2132,7 +2154,8 @@ int x_axix=42;
                     printf("Previous password : %s",own[i].password);
                     gotostring(41,8,15);
                     printf("New password : ");setcolor(10);
-                    scanf("%s",&own[i].password);keysound();
+                    hidePasswordInput(own[i].password);keysound();
+
 
                  ///clear screen
                  system("cls");
@@ -3234,7 +3257,8 @@ while(1){
                     printf("previous password : %s",cus[id1].password);
                     gotostring(48,8,7);
                     printf("New password : ");setcolor(10);
-                    scanf("%s",&cus[id1].password);keysound();
+                    hidePasswordInput(cus[id1].password);
+                    keysound();
                 }
                 if(key8==4)
                 {
@@ -4629,7 +4653,8 @@ part12a1:
                 gotostring(48,8,7);
                 printf("New password : ");
                 setcolor(10);
-                scanf("%s",own[oid].password);keysound();
+                hidePasswordInput(own[oid].password);
+                keysound();
             }
             if(key28==2)
             {
