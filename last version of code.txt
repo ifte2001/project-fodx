@@ -10,18 +10,23 @@
 
     int point,select_flag;
 
-    int arrow(char ch,int key)
+
+
+    int arrow(char ch,int max_key)  /// this func will increase / decrease the value of point
     {
+        ///ch = up and down arrow character
+        /// max_key = how many option it have
+        ///point -> it is a global value so we can use it in all function
 
         switch(ch)
         {
-        case 72:
+        case 72:  ///up
             if(point>1)
                 --point;
                 keysound();
             break;
-        case 80:
-            if(point<key)
+        case 80:  ///down
+            if(point< max_key)
                 ++point;
                 keysound();
             break;
@@ -30,8 +35,9 @@
     }
 
 
-    int selection(int key,int point)
+    int selection(int key)
     {
+        ///key = option number
         if(point==key) return 10;
         else return 15;
     }
@@ -997,9 +1003,9 @@ int x_axix=42;
         gotostring(55,5,11);
         printf("Who are you?\n");
         horizontal(50,6,13,23);
-        gotostring(53,7,selection(1,point));
+        gotostring(53,7,selection(1));
         printf("(1). I am customer\n");
-        gotostring(53,8,selection(2,point));
+        gotostring(53,8,selection(2));
         printf("(2). I am owner\n");
         horizontal(50,9,14,23);
         horizontal(50,11,14,23);
@@ -1025,6 +1031,10 @@ int x_axix=42;
             while(1)
             {
             part4:
+            select_flag = 0;
+            point = key1 = 1;
+            while(1)
+            {
             system("cls");
             vertical_left(50,4,14,8);
             vertical_right(72,4,14,8);
@@ -1034,19 +1044,31 @@ int x_axix=42;
             gotostring(52,5,11);
             printf(" Customer Account:\n");
             horizontal(50,6,13,23);
-            gotostring(53,7,15);
+            gotostring(53,7,selection(1));
             printf("(1).   Log in\n");
-            gotostring(53,8,15);
+            gotostring(53,8,selection(2));
             printf("(2).   Sign up\n");
-            gotostring(53,9,15);
+            gotostring(53,9,selection(3));
             printf("(3).   Back\n\n");
             horizontal(50,10,14,23);
             horizontal(50,12,14,23);
             gotostring(53,11,11);
-            printf("Enter the key : ");setcolor(10);
-            scanf("%d",&key1);
-            keysound();
+            printf(" SELECT(PRESS ENTER) ");setcolor(10);
+            ch=getch();
+
+            if(ch=='\r')
+            {
+                select_flag = 1;
+                keysound();
+            }
+            else arrow(ch,3);
+
+            if(select_flag == 1) break;
+
+            key1 = point;
+
             system("cls");
+            }
 
             if(key1==3)
             {
