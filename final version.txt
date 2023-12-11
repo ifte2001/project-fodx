@@ -135,32 +135,7 @@ void hidePasswordInput(char *password)
     password[i] = '\0'; // Null-terminate the password string
 }
 
-/*
-#define max_character 20
-void hidePasswordInput(char *password)
-{
-    int i = 0;
-    while (i < max_character - 1)
-    {
-        char ch = getch(); // Read a single character without echoing it to the console
-        if (ch == '\r') break;
-        else if (ch == '\b' && i > 0)
-        {                    // If Backspace is pressed
-            printf("\b \b"); // Erase the last character from the console
-            i--;
-        }
-        else if (ch != '\b')
-        {                     // For other characters except Backspace
-            password[i] = ch; // Add the character to the password
-            printf("%c",ch);      // Print a '*' to indicate input without showing the actual character
-            i++;
-        }
-    }
-    printf("\n");
-    password[i] = '\0'; // Null-terminate the password string
-}
 
-*/
 void setcolor(int ForgC) /// for COLOR
 {
     WORD wColor;
@@ -214,32 +189,16 @@ void remove_array(int m[1000], int len)
     }
 }
 
-int cordinate(double d)
-{
-    int dis = d;
 
-    if (dis < 5)
-    {
-        dis = 1;
-        dis += 2;
-    }
-    else
-    {
-        dis = dis / 5;
-        dis += 4;
-    }
-
-    return dis;
-}
-
-struct cchat
+struct cchat ///customer message
 {
     char nickname[100];
     int point;
 };
 struct cchat cmessage[1000];
 
-struct ochat
+
+struct ochat  ///owner message
 {
     char nickname[100];
     int point;
@@ -281,8 +240,8 @@ struct customer cus[1000];
 
 struct owner
 {
-    int message;
-    int gorder;
+    int message; ///feedback
+    int gorder; ///feedback
     int border;
     char shop_name[100];
     char nickname[50];
@@ -309,23 +268,6 @@ void gotoxy(int x, int y)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 }
 
-void space(int a, int b)
-{
-    COORD position;
-    position.X = a;
-    position.Y = b;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), position);
-}
-
-void clear(int n)
-{
-    for (int i = 0; i < n * 2; i++)
-    {
-        space(0, i);
-        printf("                                                                                                                                              \n                                                                                                                                             \n");
-    }
-    space(0, 0);
-}
 
 void HotelData(double s,char u_a[],char h_a[],double h_lit,double h_lon,char h_email[],char h_phone[],char h_location[])
 {
@@ -1316,8 +1258,10 @@ part3:
         }
         else
             point = arrow(ch, 2);
+
         if (select_flag == 1)
             break;
+            
         key = point;
         system("cls");
     }
@@ -3451,7 +3395,7 @@ part9:
                     if (key17 == 2)
                     {
                         /// clear screen
-                        clear(30);
+                        system("cls");
                         vertical_left(35, 4, 14, 8);
                         vertical_right(87, 4, 14, 8);
                         horizontal(35, 4, 13, 53);
@@ -4404,11 +4348,10 @@ part9:
                 keysound();
                 getchar();
 
-                if (key33 >= 1 && key33 <= user)
+                if (key33 >= 1 && key33 <= ouser)
                 {
                     cmessage[key33].point = 0;
 
-                    remove_string(phone12);
                     strcpy(phone12, own[key33].phone);
                     strcat(phone12, "omessage.txt");
                     p = fopen(phone12, "a+");
@@ -5373,12 +5316,10 @@ part12a:
 
                 ascii5 = 219;
 
-                int flag_level = 0;
                 int level = round(per / 10.0);
 
-                for (int i = 0; i <= level; i++)
+                for (int i = 0; i <= level; i++) ///good one (green)
                 {
-                    flag_level = 1;
                     box = 49 + (i * 2);
                     Sleep(40);
                     gotoxy(49 + (i * 2), 14);
@@ -5386,18 +5327,16 @@ part12a:
                     printf("%c%c", ascii5, ascii5);
                 }
 
-                flag_level = 0;
                 gotoxy(box + 2, 14);
                 printf("(%.1lf%%)", per);
 
-                for (int i = 0; i <= (10 - level); i++)
+                for (int i = 0; i <= (10 - level); i++) ///bad one (red)
                 {
                     box = 49 + (i * 2);
                     Sleep(40);
                     gotoxy(49 + (i * 2), 16);
                     setcolor(12);
                     printf("%c%c", ascii5, ascii5);
-                    flag_level = 1;
                 }
 
                 gotoxy(box + 2, 16);
