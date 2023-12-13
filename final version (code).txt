@@ -3551,6 +3551,7 @@ part9:
                 setcolor(14);
                 if (fscanf(p, "%c", &checker) == 1)
                 {
+		   printf("%c",checker);
                     while (!feof(p))
                     {
                         ch1 = fgetc(p);
@@ -4695,6 +4696,7 @@ part12a:
                 setcolor(14);
                 if (fscanf(p, "%c", &checker) == 1)
                 {
+	           printf("%c",checker);
                     while (!feof(p))
                     {
                         ch1 = fgetc(p);
