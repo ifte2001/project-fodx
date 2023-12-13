@@ -28,7 +28,7 @@ int arrow(char ch, int max_key) /// this func will increase / decrease the value
             ++point;
         keysound();
         break;
-    }
+    } 
     return point;
 }
 
