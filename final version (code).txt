@@ -28,7 +28,7 @@ int arrow(char ch, int max_key) /// this func will increase / decrease the value
             ++point;
         keysound();
         break;
-    } 
+    }
     return point;
 }
 
@@ -1261,7 +1261,7 @@ part3:
 
         if (select_flag == 1)
             break;
-            
+
         key = point;
         system("cls");
     }
@@ -2070,8 +2070,8 @@ part3:
                 printf("(3).   Back\n\n");
                 horizontal(50, 10, 14, 23);
                 horizontal(50, 12, 14, 23);
-                gotostring(53, 11, 11);
-                printf(" SELECT(PRESS ENTER) ");
+                gotostring(52, 11, 11);
+                printf("SELECT(PRESS ENTER) ");
                 setcolor(10);
                 // scanf("%d", &key23);
                 ch = getch();
@@ -3063,7 +3063,7 @@ part9:
                     else
                     {
                         setcolor(12);
-                        printf("(Not avilable)\n");
+                        printf("(Not available)\n");
                     }
                     setcolor(14);
                     character(38, 254);
